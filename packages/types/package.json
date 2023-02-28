@@ -1,0 +1,21 @@
+{
+  "name": "@family-history/types",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "clean": "rimraf dist *.tsbuildinfo",
+    "lint": "eslint src --ext js,ts",
+    "build": "tsc -b ."
+  },
+  "dependencies": {
+    "typescript": "^4.9.5"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-typescript": "^7.18.6"
+  }
+}
