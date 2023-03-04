@@ -5,7 +5,7 @@ import express from 'express';
 import helmet from 'helmet';
 import hpp from 'hpp';
 import morgan from 'morgan';
-import { connect, MongooseError, set } from 'mongoose';
+import { connect, set } from 'mongoose';
 import swaggerJSDoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
 import { NODE_ENV, PORT, LOG_FORMAT, ORIGIN, CREDENTIALS } from '@config';
@@ -48,6 +48,7 @@ class App {
     if (this.env !== 'production') {
       set('debug', true);
     }
+    set('strictQuery', true);
 
     connect(dbConnection.url, dbConnection.options, dbConnection.callback);
   }
