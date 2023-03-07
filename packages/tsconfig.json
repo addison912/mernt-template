@@ -1,8 +1,4 @@
 {
   "files": [],
-  "references": [
-    { "path": "utils" },
-    { "path": "types" },
-    { "path": "frontend" }
-  ]
+  "references": [{ "path": "utils" }, { "path": "types" }, { "path": "frontend" }, { "path": "backend" }]
 }
