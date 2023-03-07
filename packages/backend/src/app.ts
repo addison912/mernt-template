@@ -13,6 +13,7 @@ import { dbConnection } from '@databases';
 import { Routes } from '@interfaces/routes.interface';
 import errorMiddleware from '@middlewares/error.middleware';
 import { logger, stream } from '@utils/logger';
+import path from 'path';
 
 class App {
   public app: express.Application;
@@ -26,6 +27,7 @@ class App {
 
     this.connectToDatabase();
     this.initializeMiddlewares();
+    this.initializeUi();
     this.initializeRoutes(routes);
     this.initializeSwagger();
     this.initializeErrorHandling();
@@ -33,10 +35,11 @@ class App {
 
   public listen() {
     this.app.listen(this.port, () => {
-      logger.info(`=================================`);
-      logger.info(`======= ENV: ${this.env} =======`);
+      logger.info(`==================================`);
+      logger.info(`======== ENV: ${this.env} ========`);
       logger.info(`🚀 App listening on the port ${this.port}`);
-      logger.info(`=================================`);
+      logger.info(`====== http://localhost:${this.port} =====`);
+      logger.info(`==================================`);
     });
   }
 
@@ -66,8 +69,15 @@ class App {
 
   private initializeRoutes(routes: Routes[]) {
     routes.forEach(route => {
-      this.app.use('/', route.router);
+      this.app.use('/api', route.router);
     });
+  }
+
+  private initializeUi() {
+    // const build = process.env.NODE_ENV !== 'production' ? '../dist' : 'build';
+    const build = path.join(__dirname, '../../frontend/build');
+    console.log(build);
+    this.app.use('/', express.static(build));
   }
 
   private initializeSwagger() {
