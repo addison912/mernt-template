@@ -57,7 +57,7 @@ class App {
   }
 
   private initializeMiddlewares() {
-    this.app.use(morgan(LOG_FORMAT, { stream }));
+    this.app.use(morgan(`${LOG_FORMAT}` || 'dev', { stream }));
     this.app.use(cors({ origin: ORIGIN, credentials: CREDENTIALS }));
     this.app.use(hpp());
     this.app.use(helmet());
@@ -74,10 +74,10 @@ class App {
   }
 
   private initializeUi() {
-    // const build = process.env.NODE_ENV !== 'production' ? '../dist' : 'build';
-    const build = path.join(__dirname, '../../frontend/build');
-    console.log(build);
-    this.app.use('/', express.static(build));
+    const build = process.env.NODE_ENV !== 'production' ? 'dist' : 'build';
+    const build_path = path.join(__dirname, `../../frontend/${build}`);
+    console.log(build_path);
+    this.app.use('/', express.static(build_path));
   }
 
   private initializeSwagger() {
