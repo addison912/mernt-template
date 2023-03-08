@@ -1,8 +1,7 @@
-# app name should be overridden.
 # ex) production-stage: make build APP_NAME=<APP_NAME>
 # ex) development-stage: make build-dev APP_NAME=<APP_NAME>
 
-APP_NAME = typescript-express
+APP_NAME = family-history
 APP_NAME := $(APP_NAME)
 
 .PHONY: build
