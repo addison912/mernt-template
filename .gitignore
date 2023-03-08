@@ -9,6 +9,7 @@
 # production
 /build
 */build
+packages/frontend/build
 
 # misc
 .DS_Store
