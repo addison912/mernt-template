@@ -1,4 +1,5 @@
 {
+  "extends": "../tsconfig.settings.json",
   "compileOnSave": false,
   "compilerOptions": {
     "target": "es2017",
@@ -35,6 +36,6 @@
       "@utils/*": ["utils/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.json", ".env"],
-  "exclude": ["node_modules", "src/http", "src/logs", "src/tests"]
+  "include": ["src/**/*.ts", "src/**/*.json", ".env", "src/tests"],
+  "exclude": ["node_modules", "src/http", "src/logs"]
 }

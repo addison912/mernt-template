@@ -23,5 +23,10 @@
     "@typescript-eslint/no-unsafe-assignment": "off",
     "no-use-before-define": "off",
     "import/prefer-default-export": "off"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }
