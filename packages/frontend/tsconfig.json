@@ -2,6 +2,7 @@
   "extends": "../tsconfig.settings.json",
   "compilerOptions": {
     "composite": true,
+    "experimentalDecorators": true,
     "lib": ["dom", "dom.iterable", "esnext"],
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
