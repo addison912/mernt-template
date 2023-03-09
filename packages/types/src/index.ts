@@ -1,1 +1,1 @@
-export { IUser, IPerson } from "./types";
+export { IUser, IPerson, IGoogleUser } from './types';

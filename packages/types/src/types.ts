@@ -29,3 +29,20 @@ export interface IPerson {
   spouse?: IPerson[];
   children?: IPerson[];
 }
+
+/**
+ * Google user object
+ * @public
+ */
+export interface IGoogleUser {
+  email: string;
+  exp: number;
+  family_name: string;
+  given_name: string;
+  iat: number;
+  id: string;
+  locale: string;
+  name: string;
+  picture: string;
+  verified_email: boolean;
+}
