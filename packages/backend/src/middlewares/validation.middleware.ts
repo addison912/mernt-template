@@ -10,11 +10,15 @@ const validationMiddleware = (
   whitelist = true,
   forbidNonWhitelisted = true,
 ): RequestHandler => {
-  return (req, res, next) => {
-    validate(plainToInstance(type, req[value]), { skipMissingProperties, whitelist, forbidNonWhitelisted })
+  return (req, _res, next) => {
+    validate(plainToInstance(type, req[value as keyof typeof req]), { skipMissingProperties, whitelist, forbidNonWhitelisted })
       .then((errors: ValidationError[]) => {
         if (errors.length > 0) {
-          const message = errors.map((error: ValidationError) => Object.values(error.constraints)).join(', ');
+          const message = errors
+            .map((error: ValidationError) =>
+              error && typeof error.constraints != 'undefined' ? Object.values(error.constraints) : 'Error message not available',
+            )
+            .join(', ');
           next(new HttpException(400, message));
         } else {
           next();

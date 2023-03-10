@@ -76,7 +76,6 @@ class App {
   private initializeUi() {
     const build = process.env.NODE_ENV !== 'production' ? 'dist' : 'build';
     const build_path = path.join(__dirname, `../../frontend/${build}`);
-    console.log(build_path);
     this.app.use('/', express.static(build_path));
   }
 
