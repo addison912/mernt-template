@@ -6,10 +6,12 @@
 # testing
 /coverage
 
-# production
+# builds
 /build
-*/build
-packages/frontend/build
+/dist
+/packages/*/build
+/packages/*/dist*
+
 
 # misc
 .DS_Store
