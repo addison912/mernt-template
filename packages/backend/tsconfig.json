@@ -2,8 +2,7 @@
   "extends": "../tsconfig.settings.json",
   "compileOnSave": false,
   "compilerOptions": {
-    "target": "es2017",
-    "lib": ["es2017", "esnext.asynciterable"],
+    "lib": ["ES2018", "esnext.asynciterable"],
     "typeRoots": ["../../node_modules/@types"],
     "types": ["jest", "node"],
     "allowSyntheticDefaultImports": true,

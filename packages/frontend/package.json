@@ -20,15 +20,16 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.2",
     "typescript": "^4.9.5",
-    "web-vitals": "^3.1.1"
+    "web-vitals": "^3.3.0"
   },
   "scripts": {
-    "build": "parcel build --no-cache public/index.html --dist-dir ./build",
-    "dev": "parcel public/index.html",
+    "build:prod": "parcel build --no-cache public/index.html --dist-dir ./build/prod",
+    "dev": "parcel public/index.html --dist-dir ./build/dev",
     "test": "jest --detectOpenHandles",
     "format": "prettier \"{src}/**/*.{js,jsx,ts,tsx,html}\" --write",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --quiet --fix",
-    "clear": "rm -rf ./dist ./build ../../.parcel-cache"
+    "build:lib": "tsc -b",
+    "clear": "rm -rf ./build/* ../../.parcel-cache"
   },
   "eslintConfig": {
     "extends": [
@@ -64,7 +65,7 @@
     "@parcel/transformer-webmanifest": "^2.8.3",
     "@parcel/validator-typescript": "^2.8.3",
     "@types/jest": "^29.4.0",
-    "@types/node": "^18.14.6",
+    "@types/node": "^18.15.0",
     "@types/react": "^18.0.28",
     "@types/react-dev-utils": "^9.0.11",
     "@types/react-dom": "^18.0.11",

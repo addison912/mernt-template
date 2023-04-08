@@ -4,6 +4,7 @@
     "composite": true,
     "experimentalDecorators": true,
     "lib": ["dom", "dom.iterable", "esnext"],
+    "types": ["node"],
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "allowJs": true,
@@ -16,8 +17,8 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "outDir": "dist",
-    "rootDir": "src"
+    "outDir": "lib",
+    "rootDir": "utils"
   },
-  "include": ["src"]
+  "include": ["utils"]
 }

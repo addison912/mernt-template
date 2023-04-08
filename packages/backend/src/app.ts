@@ -13,7 +13,7 @@ import { dbConnection } from '@databases';
 import { Routes } from '@interfaces/routes.interface';
 import errorMiddleware from '@middlewares/error.middleware';
 import { logger, stream } from '@utils/logger';
-import path from 'path';
+import { build } from '@family-history/frontend/utils';
 
 class App {
   public app: express.Application;
@@ -52,8 +52,9 @@ class App {
       set('debug', true);
     }
     set('strictQuery', true);
-
-    connect(dbConnection.url, dbConnection.options, dbConnection.callback);
+    void connect(dbConnection.url, dbConnection.options)
+      .then(() => console.log('Connected to MongoDB'))
+      .catch(err => console.error(err));
   }
 
   private initializeMiddlewares() {
@@ -74,9 +75,12 @@ class App {
   }
 
   private initializeUi() {
-    const build = process.env.NODE_ENV !== 'production' ? 'dist' : 'build';
-    const build_path = path.join(__dirname, `../../frontend/${build}`);
-    this.app.use('/', express.static(build_path));
+    // const build = process.env.NODE_ENV !== 'production' ? 'dev' : 'prod';
+    const build_env = process.env.NODE_ENV !== 'production' ? 'dev' : 'prod';
+    // const build_path = path.join(__dirname, `../../frontend/build/${build}`);
+    this.app.use('/', express.static(build(build_env)));
+    // console.log(build(build_env));
+    // this.app.use('/', express.static(require(`@family-history/frontend/build/${build_env}`)));
   }
 
   private initializeSwagger() {
