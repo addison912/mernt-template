@@ -1,6 +1,6 @@
-import { DB_HOST, DB_PORT, DB_DATABASE } from '@config';
+import { DB_HOST, DB_PORT, MONGO_INITDB_ROOT_USERNAME, MONGO_INITDB_ROOT_PASSWORD, DB_NAME } from '@config';
 
 export const dbConnection = {
-  url: `mongodb://${DB_HOST}:${DB_PORT}/${DB_DATABASE}`,
+  url: `mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`,
   options: {},
 };

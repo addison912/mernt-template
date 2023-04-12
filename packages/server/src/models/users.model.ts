@@ -14,10 +14,7 @@ const userSchema: Schema = new Schema({
   username: {
     type: String,
     required: true,
-  },
-  auth_code: {
-    type: String,
-    required: false,
+    unique: true,
   },
   authenticated: {
     type: Boolean,
@@ -28,12 +25,23 @@ const userSchema: Schema = new Schema({
     type: Date,
     required: false,
   },
+  date_updated: {
+    type: Date,
+    required: false,
+  },
   last_login: {
     type: Date,
     required: false,
   },
 });
 
-const userModel = model<User & Document>('User', userSchema);
+userSchema.set('toJSON', {
+  transform: function (_doc, ret) {
+    delete ret['password'];
+    return ret;
+  },
+});
 
-export default userModel;
+const User = model<User & Document>('User', userSchema);
+
+export default User;

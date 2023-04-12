@@ -6,5 +6,6 @@ export interface User {
   authenticated: boolean;
   auth_code?: string;
   date_created?: Date;
+  date_updated?: Date;
   last_login?: Date;
 }

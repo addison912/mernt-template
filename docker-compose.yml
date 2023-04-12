@@ -10,11 +10,11 @@ services:
   #     - ./nginx.conf:/etc/nginx/nginx.conf
   #   restart: 'unless-stopped'
   #   networks:
-  #     - backend
+  #     - server
 
   # server:
   #   build:
-  #     context: ./packages/backend
+  #     context: ./packages/server
   #     target: development-build-stage
   #   container_name: server
   #   ports:
@@ -24,7 +24,7 @@ services:
   #     - /app/node_modules
   #   restart: 'unless-stopped'
   #   networks:
-  #     - backend
+  #     - server
   #   links:
   #     - mongo
   #   depends_on:
@@ -39,10 +39,10 @@ services:
     env_file:
       - .env.development.local
     networks:
-      - backend
+      - server
 
 networks:
-  backend:
+  server:
     driver: bridge
 
 volumes:

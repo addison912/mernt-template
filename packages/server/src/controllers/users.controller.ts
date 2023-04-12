@@ -34,6 +34,10 @@ class UsersController {
 
       res.status(201).json({ data: createUserData, message: 'created' });
     } catch (error) {
+      // delete
+      console.log('_______________here_____________');
+      console.error(error);
+      // delete
       next(error);
     }
   };
