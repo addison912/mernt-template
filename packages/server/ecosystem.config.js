@@ -20,7 +20,7 @@ export const apps = [
     error: './logs/error.log',
     env: {
       // environment variable
-      PORT: 3000,
+      SERVER_PORT: 3001,
       NODE_ENV: 'production',
     },
   },
@@ -40,7 +40,7 @@ export const apps = [
     error: './logs/error.log',
     env: {
       // environment variable
-      PORT: 3000,
+      SERVER_PORT: 3001,
       NODE_ENV: 'development',
     },
   },

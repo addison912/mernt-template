@@ -107,6 +107,7 @@ definitions:
     required:
       - email
       - password
+      - username
     properties:
       email:
         type: string
@@ -114,6 +115,9 @@ definitions:
       password:
         type: string
         description: user Password
+      username:
+        type: string
+        description: user Username
 
 schemes:
   - https

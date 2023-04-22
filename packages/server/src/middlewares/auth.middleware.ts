@@ -3,7 +3,7 @@ import { verify } from 'jsonwebtoken';
 import { SECRET_KEY } from '@config';
 import { HttpException } from '@exceptions/HttpException';
 import { DataStoredInToken } from '@interfaces/auth.interface';
-import userModel from '@models/users.model';
+import userModel from '@/models/User';
 
 const authMiddleware = async (req: Request, _res: Response, next: NextFunction) => {
   try {

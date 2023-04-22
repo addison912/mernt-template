@@ -33,6 +33,10 @@ const userSchema: Schema = new Schema({
     type: Date,
     required: false,
   },
+  google_id: {
+    type: String,
+    required: false,
+  },
 });
 
 userSchema.set('toJSON', {
