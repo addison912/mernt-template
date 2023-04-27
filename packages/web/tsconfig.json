@@ -2,7 +2,6 @@
   "extends": "../tsconfig.settings.json",
   "compilerOptions": {
     "composite": true,
-    "experimentalDecorators": true,
     "lib": ["dom", "dom.iterable", "esnext"],
     "types": ["node"],
     "forceConsistentCasingInFileNames": true,
@@ -11,14 +10,29 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "module": "esnext",
+    "sourceMap": true,
+    "declaration": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
+    "importHelpers": true,
+    "noEmit": false,
     "jsx": "react-jsx",
     "outDir": "lib",
-    "rootDir": "utils"
-  },
-  "include": ["utils"]
+    "baseUrl": ".",
+    "pretty": true,
+    "typeRoots": ["../../node_modules/@types"],
+
+    "paths": {
+      "@/*": ["*"],
+      "@utils/*": ["utils/*"],
+      "@config/*": ["src/config/*"],
+      "@views/*": ["src/views/*"],
+      "@components/*": ["src/components/*"],
+      "@assets/*": ["public/assets/*"]
+    }
+  }
 }

@@ -15,7 +15,7 @@
       "jsx": true
     }
   },
-  "plugins": ["@typescript-eslint", "react", "react-hooks", "eslint-plugin-prettier"],
+  "plugins": ["@typescript-eslint", "@emotion", "jsx-a11y", "react", "eslint-plugin-prettier"],
   "rules": {
     "prefer-const": "error",
     "@typescript-eslint/no-unsafe-member-access": "off",

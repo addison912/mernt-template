@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "lerna run build",
     "lint": "lerna run lint",
     "dev": "lerna run dev"
@@ -23,14 +22,13 @@
     ]
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.58.0",
+    "@typescript-eslint/parser": "^5.58.0",
     "eslint": "^8.38.0",
     "eslint-plugin-react": "^7.32.2",
     "prettier": "^2.8.7",
     "process": "^0.11.10",
-    "rimraf": "^5.0.0"
-  },
-  "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.58.0",
-    "@typescript-eslint/parser": "^5.58.0"
+    "rimraf": "^5.0.0",
+    "lerna": "^6.5.1"
   }
 }

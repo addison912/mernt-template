@@ -1,13 +1,25 @@
 {
   "compilerOptions": {
+    "moduleResolution": "node",
     "module": "CommonJS",
-    "composite": true,
     "target": "ES2018",
+    "jsx": "react",
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "forceConsistentCasingInFileNames": true,
+    "pretty": true,
+    "sourceMap": true,
+    "allowJs": true,
+    "noEmit": false,
+    "resolveJsonModule": true,
+    "importHelpers": true,
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "esModuleInterop": true,
     "noImplicitReturns": true,
-    "declaration": true
+    "typeRoots": ["node_modules/@types"]
   },
   "exclude": ["**/node_modules/**", "**/scratch/**"]
 }

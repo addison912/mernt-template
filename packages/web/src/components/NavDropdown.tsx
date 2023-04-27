@@ -3,7 +3,7 @@ import NavDropdownItem from './NavDropdownItem';
 import { useDetectOutsideClick } from './useDetectOutsideClick';
 import ExpandIcon from './icons/ExpandIcon';
 import SignOutIcon from './icons/SignOutIcon';
-import { IGoogleUser } from '@family-history/types';
+import { IGoogleUser } from '../../../types';
 
 interface IProps {
   user: IGoogleUser | null;
@@ -29,6 +29,7 @@ const NavDropdown = (props: IProps) => {
           </div>
         </button>
       ) : null}
+
       <nav ref={dropdownRef} className={`navDropdown${isActive ? ' navDropdown_visible' : ''}`}>
         <ul>
           {navDropdownItems.map((item, i) => (

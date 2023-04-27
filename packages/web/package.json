@@ -4,18 +4,9 @@
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.6",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^14.0.0",
-    "@testing-library/user-event": "^14.4.3",
     "browserslist": "^4.21.5",
     "camelcase": "^7.0.1",
     "dotenv": "^16.0.3",
-    "eslint": "^8.35.0",
-    "eslint-config-react-app": "^7.0.1",
-    "jest": "^29.5.0",
-    "jest-resolve": "^29.5.0",
-    "jest-watch-typeahead": "^2.2.2",
-    "lerna": "^6.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.2",
@@ -23,13 +14,14 @@
     "web-vitals": "^3.3.0"
   },
   "scripts": {
-    "build:prod": "parcel build --no-cache public/index.html --dist-dir ./build/prod",
-    "dev": "parcel public/index.html --dist-dir ./build/dev",
+    "build:prod": "parcel build --no-cache src/index.html --dist-dir ./build/prod",
+    "dev": "parcel src/index.html --dist-dir ./build/dev",
     "test": "jest --detectOpenHandles",
     "format": "prettier \"{src}/**/*.{js,jsx,ts,tsx,html}\" --write",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --quiet --fix",
-    "build:lib": "tsc -b",
-    "clear": "rm -rf ./build/* ../../.parcel-cache"
+    "build": "tsc -b",
+    "clear": "rm -rf ./build/* ../../.parcel-cache",
+    "sass": "sass --watch sass:src/styles"
   },
   "eslintConfig": {
     "extends": [
@@ -64,6 +56,9 @@
     "@parcel/transformer-typescript-tsc": "^2.8.3",
     "@parcel/transformer-webmanifest": "^2.8.3",
     "@parcel/validator-typescript": "^2.8.3",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
     "@types/jest": "^29.4.0",
     "@types/node": "^18.15.0",
     "@types/react": "^18.0.28",
@@ -77,12 +72,17 @@
     "babel-preset-react-app": "^10.0.1",
     "eslint": "^8.35.0",
     "eslint-config-prettier": "^8.7.0",
+    "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "jest": "^29.5.0",
+    "jest-resolve": "^29.5.0",
+    "jest-watch-typeahead": "^2.2.2",
     "parcel": "^2.8.3",
-    "prettier": "^2.8.4"
+    "prettier": "^2.8.4",
+    "sass": "^1.62.1"
   },
   "jest": {
     "roots": [

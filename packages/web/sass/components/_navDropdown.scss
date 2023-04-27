@@ -1,0 +1,55 @@
+.navDropdown {
+  width: 200px;
+  display: flex;
+  overflow: hidden;
+  top: $size-header-height;
+  flex-direction: column;
+  position: absolute;
+  right: 12px;
+  background-color: rgba($color: $color-darkest, $alpha: 1);
+  border-radius: 0 0 $radius-component $radius-component;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+  z-index: 2;
+}
+
+.navDropdownItem {
+  width: 100%;
+  display: flex;
+  padding: 6px;
+  .menu-icon {
+    display: flex;
+    justify-content: center;
+  }
+  .dropdownItemName {
+    padding-left: 12px;
+  }
+  .dropDownMenuButton {
+    width: 100%;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    padding: 4px 12px;
+    background-color: rgba($color: $color-darker, $alpha: 0);
+    transition: 0.2s ease-in-out;
+    border-radius: $radius-component;
+  }
+  .dropDownMenuButton:hover {
+    background-color: rgba($color: $color-darker, $alpha: 1);
+    transition: 0.2s ease-in-out;
+  }
+}
+
+// .navDropdown.navDropdown_hidden {
+//   opacity: 0;
+//   max-height: 0px;
+//   transition: max-height 0.2s ease-in-out, opacity 0.2s ease-in-out;
+// }
+
+.navDropdown.navDropdown_visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}

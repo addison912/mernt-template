@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { FunctionComponent } from 'react';
 import NavDropdown from './NavDropdown';
-import logo from '../../public/assets/images/logo.svg';
+import logo from '../assets/images/logo.svg';
 
 type GoogleUser = {
   email: string;
@@ -21,10 +21,10 @@ interface IProps {
   signOut: () => void;
 }
 
-const Header: FunctionComponent<IProps> = ({ user, signOut }) => {
+const Navbar: FunctionComponent<IProps> = ({ user, signOut }) => {
   return (
-    <header>
-      <Link className="col_3" to="/">
+    <header id="main-header">
+      <Link className="logo-wrapper" to="/">
         <img className="logo" src={logo} alt="Family History logo" />
       </Link>
       <NavDropdown user={user} signOut={signOut} />
@@ -32,4 +32,4 @@ const Header: FunctionComponent<IProps> = ({ user, signOut }) => {
   );
 };
 
-export default Header;
+export default Navbar;
