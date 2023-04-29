@@ -1,30 +1,34 @@
 import React, { FunctionComponent } from 'react';
 import { Form, Formik } from 'formik';
 import { Button } from '@chakra-ui/react';
-import { Wrapper } from '../components/Wrapper';
-import InputField from '../components/InputField';
-import { toErrorMap } from '../utils/toErrorMap';
+import { Wrapper } from '../../components/Wrapper';
+import InputField from '../../components/InputField';
+import { useRouter } from 'next/router';
+// import { toErrorMap } from '../utils/toErrorMap';
 
-interface LoginProps {}
+interface RegisterProps {}
 
-const Register: FunctionComponent<LoginProps> = ({}) => {
-  const login = (values: any) => {
+const Register: FunctionComponent<RegisterProps> = () => {
+  const router = useRouter();
+  const register = (values: any) => {
     console.log(values);
+    router.push('/');
   };
   return (
     <Wrapper variant="small">
       <Formik
-        initialValues={{ username: '', password: '' }}
+        initialValues={{ username: '', email: '', password: '' }}
         onSubmit={async (values, { setErrors }) => {
-          login(values);
+          register(values);
         }}
       >
         {({ isSubmitting }) => (
           <Form>
             <InputField name="username" placeholder="username" />
+            <InputField name="email" placeholder="email" />
             <InputField name="password" placeholder="password" type="password" />
             <Button type="submit" mt={4} bgColor="buttonPrimary" isLoading={isSubmitting}>
-              Login
+              Register
             </Button>
           </Form>
         )}
