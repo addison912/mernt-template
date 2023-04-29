@@ -1,6 +1,7 @@
 {
   "packages": ["packages/*"],
-  "npmClient": "npm",
+  "npmClient": "yarn",
   "version": "0.0.1",
-  "useWorkspaces": true
+  "useWorkspaces": true,
+  "nohoist": ["parcel"]
 }

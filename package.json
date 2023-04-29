@@ -1,11 +1,35 @@
 {
   "name": "mernt-template",
-  "packageManager": "yarn@4.0.0-rc.42",
+  "packageManager": "yarn@3.5.0",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "lerna run build",
+    "lint": "lerna run lint",
+    "dev": "lerna run dev"
+  },
+  "author": "Addison Moore <addisondrewmoore@gmail.com>",
+  "license": "ISC",
+  "private": true,
   "workspaces": [
     "packages/*"
   ],
+  "browserslist": {
+    "production": [
+      ">0.25%",
+      "not dead",
+      "not op_mini all"
+    ]
+  },
   "devDependencies": {
-    "@parcel/transformer-webmanifest": "2.8.3",
-    "typescript": "^5.0.4"
+    "@typescript-eslint/eslint-plugin": "^5.58.0",
+    "@typescript-eslint/parser": "^5.58.0",
+    "eslint": "^8.38.0",
+    "eslint-plugin-react": "^7.32.2",
+    "lerna": "^6.6.1",
+    "prettier": "^2.8.7",
+    "process": "^0.11.10",
+    "rimraf": "^5.0.0"
   }
 }
