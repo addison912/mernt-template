@@ -37,6 +37,11 @@
       "@utils/*": ["utils/*"]
     }
   },
+  "references": [
+    {
+      "path": "../types"
+    }
+  ],
   "include": ["src/**/*.ts", "src/**/*.json", ".env"],
   "exclude": ["node_modules", "src/http", "src/logs", "src/tests"]
 }

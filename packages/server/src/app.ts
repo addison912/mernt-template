@@ -13,6 +13,7 @@ import { dbConnection } from '@databases';
 import { Routes } from '@interfaces/routes.interface';
 import errorMiddleware from '@middlewares/error.middleware';
 import { logger, stream } from '@utils/logger';
+import path from 'path';
 
 class App {
   public app: express.Application;
@@ -74,12 +75,9 @@ class App {
   }
 
   private initializeUi() {
-    // const build = process.env.NODE_ENV !== 'production' ? 'dev' : 'prod';
-    // const build_env = process.env.NODE_ENV !== 'production' ? 'dev' : 'prod';
-    // const build_path = path.join(__dirname, `../../web/build/${build}`);
-    // this.app.use('/', express.static(build(build_env)));
-    // console.log(build(build_env));
-    // this.app.use('/', express.static(require(`@family-history/web/build/${build_env}`)));
+    const build_env = process.env.NODE_ENV !== 'production' ? 'dev' : 'prod';
+    const build_path = path.join(__dirname, `../../web/build/${build_env}`);
+    this.app.use('/', express.static(build_path));
   }
 
   private initializeSwagger() {

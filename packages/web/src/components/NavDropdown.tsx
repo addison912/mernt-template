@@ -3,7 +3,7 @@ import NavDropdownItem from './NavDropdownItem';
 import { useDetectOutsideClick } from './useDetectOutsideClick';
 import ExpandIcon from './icons/ExpandIcon';
 import SignOutIcon from './icons/SignOutIcon';
-import { IGoogleUser } from '../../../types';
+import { IGoogleUser } from '../../../types/dist';
 
 interface IProps {
   user: IGoogleUser | null;

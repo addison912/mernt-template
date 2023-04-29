@@ -34,5 +34,10 @@
       "@components/*": ["src/components/*"],
       "@assets/*": ["public/assets/*"]
     }
-  }
+  },
+  "references": [
+  {
+     "path": "../types"
+  }],
+
 }

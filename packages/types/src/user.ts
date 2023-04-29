@@ -1,14 +1,39 @@
 /**
- * Family History users
+ * Registration data
+ * @public
+ */
+export interface IRegister {
+  username: string;
+  email: string;
+  password: string;
+}
+
+/**
+ * User Login
+ * @public
+ */
+export interface ILogin {
+  email: string;
+  password: string;
+}
+
+/**
+ * User profile
  * @public
  */
 export interface IUser {
-  uid: string;
+  _id: string;
   email: string;
-  fname: string;
-  lname: string;
-  profilePic: string;
-  ftid: string;
+  username: string;
+  password: string;
+  authenticated: boolean;
+  date_created?: Date;
+  date_updated?: Date;
+  last_login?: Date;
+  fname?: string;
+  lname?: string;
+  profilePic?: string;
+  ftid?: string;
 }
 
 /**
