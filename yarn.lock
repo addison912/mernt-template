@@ -7090,6 +7090,7 @@ __metadata:
     "@types/node": "npm:^18.15.11"
     "@types/react": "npm:^18.0.33"
     "@types/react-dom": "npm:^18.0.11"
+    dotenv: "npm:^16.0.3"
     formik: "npm:^2.2.9"
     framer-motion: "npm:^10.11.2"
     next: "npm:latest"
