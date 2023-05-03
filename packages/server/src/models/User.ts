@@ -1,6 +1,6 @@
 import { model, Schema, Document } from 'mongoose';
 // import { User } from '@interfaces/users.interface';
-import { IUser } from '../../../types';
+import { UserModel } from '../../../types';
 
 const userSchema: Schema = new Schema({
   email: {
@@ -51,6 +51,6 @@ userSchema.set('toJSON', {
   },
 });
 
-const User = model<IUser & Document>('User', userSchema);
+const User = model<UserModel & Document>('User', userSchema);
 
 export default User;

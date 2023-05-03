@@ -17,15 +17,10 @@ export interface ILogin {
   password: string;
 }
 
-/**
- * User profile
- * @public
- */
-export interface IUser {
+export type IUser = {
   _id: string;
   email: string;
   username: string;
-  password: string;
   authenticated: boolean;
   date_created?: Date;
   date_updated?: Date;
@@ -34,6 +29,14 @@ export interface IUser {
   lname?: string;
   profilePic?: string;
   ftid?: string;
+};
+
+/**
+ * User profile
+ * @public
+ */
+export interface UserModel extends IUser {
+  password: string;
 }
 
 /**

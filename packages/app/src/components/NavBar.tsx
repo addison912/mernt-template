@@ -1,5 +1,5 @@
 import { FunctionComponent } from 'react';
-import { Box, Link, Flex, Image, Button, useColorModeValue, Stack, color } from '@chakra-ui/react';
+import { Box, Link, Flex, Image, Button, useColorModeValue, Stack } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import NavDropdown from './NavDropdown';
 import { DarkModeSwitch } from './DarkModeSwitch';

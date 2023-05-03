@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState, useContext } from 'react';
+import React, { FunctionComponent, useContext } from 'react';
 import UserContext from '@/src/context/UserContext';
 import { Form, Formik } from 'formik';
 import { Button } from '@chakra-ui/react';
@@ -13,7 +13,7 @@ import { login } from '@utils/user';
 interface LoginProps {}
 
 const Register: FunctionComponent<LoginProps> = ({}) => {
-  const [_, setUser] = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
 
   const router = useRouter();
   const loginHandler = async (values: ILogin) => {
