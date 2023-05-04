@@ -11379,6 +11379,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": "npm:^5.58.0"
     "@typescript-eslint/parser": "npm:^5.58.0"
     eslint: "npm:^8.38.0"
+    eslint-plugin-next: "npm:^0.0.0"
     eslint-plugin-react: "npm:^7.32.2"
     lerna: "npm:^6.6.1"
     prettier: "npm:^2.8.7"

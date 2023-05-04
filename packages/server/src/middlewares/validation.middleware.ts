@@ -1,10 +1,10 @@
-import { plainToInstance } from 'class-transformer';
+import { ClassConstructor, plainToInstance } from 'class-transformer';
 import { validate, ValidationError } from 'class-validator';
 import { RequestHandler } from 'express';
 import { HttpException } from '@exceptions/HttpException';
 
 const validationMiddleware = (
-  type: any,
+  type: ClassConstructor<object>,
   value: string | 'body' | 'query' | 'params' = 'body',
   skipMissingProperties = false,
   whitelist = true,
@@ -24,8 +24,17 @@ const validationMiddleware = (
           next();
         }
       })
-      .catch(error => {
-        next(new HttpException(500, error.message));
+      .catch((errors: ValidationError[]) => {
+        if (errors.length > 0) {
+          const message = errors
+            .map((error: ValidationError) =>
+              error && typeof error.constraints != 'undefined' ? Object.values(error.constraints) : 'Error message not available',
+            )
+            .join(', ');
+          next(new HttpException(500, message));
+        } else {
+          next();
+        }
       });
   };
 };

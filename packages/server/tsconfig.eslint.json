@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true
+  },
+  "include": [
+    // whatever paths you intend to lint
+    "src"
+  ]
+}

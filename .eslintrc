@@ -13,14 +13,17 @@
     "ecmaVersion": 12,
     "ecmaFeatures": {
       "jsx": true
-    }
+    },
+    "project": "./tsconfig.eslint.json"
   },
-  "plugins": ["@typescript-eslint", "@emotion", "jsx-a11y", "react", "eslint-plugin-prettier", "eslint-plugin-next", "eslint-plugin-react"],
+  "plugins": ["@typescript-eslint", "@emotion", "jsx-a11y", "react", "eslint-plugin-prettier", "eslint-plugin-react"],
   "rules": {
     "prefer-const": "error",
     "@typescript-eslint/no-unsafe-member-access": "off",
     "@typescript-eslint/no-unsafe-call": "off",
+    "@typescript-eslint/restrict-template-expressions": "off",
     "@typescript-eslint/no-unsafe-assignment": "off",
+    "@typescript-eslint/no-misused-promises": "off",
     "no-use-before-define": "off",
     "import/prefer-default-export": "off"
   },

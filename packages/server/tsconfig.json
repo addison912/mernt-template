@@ -25,6 +25,6 @@
       "path": "../types"
     }
   ],
-  "include": ["src/**/*.ts", "src/**/*.json", ".env"],
-  "exclude": ["node_modules", "src/http", "src/logs", "src/tests"]
+  "include": ["src/**/*.ts", "src/**/*.json"],
+  "exclude": ["node_modules", "src/http", "src/logs"]
 }

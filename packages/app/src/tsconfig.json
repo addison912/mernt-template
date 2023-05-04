@@ -9,5 +9,5 @@
     "noImplicitReturns": true,
     "declaration": true
   },
-  "exclude": ["**/node_modules/**", "scratch/**", "**/tests/**"]
+  "exclude": ["**/node_modules/**", "scratch/**"]
 }

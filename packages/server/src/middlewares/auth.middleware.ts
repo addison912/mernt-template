@@ -7,7 +7,8 @@ import userModel from '@/models/User';
 
 const authMiddleware = async (req: Request, _res: Response, next: NextFunction) => {
   try {
-    const Authorization = req.cookies['Authorization'] || (req.header('Authorization') ? req.header('Authorization')?.split('Bearer ')[1] : null);
+    const Authorization: string =
+      req.cookies['Authorization'] || (req.header('Authorization') ? req.header('Authorization')?.split('Bearer ')[1] : null);
     if (Authorization) {
       if (typeof SECRET_KEY === 'undefined') {
         throw new Error('Secret key is undefined');

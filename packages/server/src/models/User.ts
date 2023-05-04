@@ -44,12 +44,12 @@ const userSchema: Schema = new Schema({
   },
 });
 
-userSchema.set('toJSON', {
-  transform: function (_doc, ret) {
-    delete ret['password'];
-    return ret;
-  },
-});
+// userSchema.set('toJSON', {
+//   transform: function (_doc, ret) {
+//     delete ret['password'];
+//     return ret;
+//   },
+// });
 
 const User = model<UserModel & Document>('User', userSchema);
 
