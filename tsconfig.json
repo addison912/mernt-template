@@ -2,12 +2,12 @@
   "compilerOptions": {
     "module": "CommonJS",
     "composite": true,
-    "target": "ES2019",
+    "target": "ES2020",
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "declaration": true
   },
-  "exclude": ["**/node_modules/**", "scratch/**", "**/tests/**"]
+  "exclude": ["**/node_modules/**", "scratch/**"]
 }

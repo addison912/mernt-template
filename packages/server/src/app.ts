@@ -76,9 +76,14 @@ class App {
 
   private initializeUi() {
     const build_env = process.env.NODE_ENV !== 'production' ? 'dev' : 'prod';
-    const build_path = path.join(__dirname, `../../web/build/${build_env}`);
+    const build_path = path.join(__dirname, `@/../app/build`);
     this.app.use('/', express.static(build_path));
   }
+  // private initializeUi() {
+  //   const build_env = process.env.NODE_ENV !== 'production' ? 'dev' : 'prod';
+  //   const build_path = path.join(__dirname, `../../web/build/${build_env}`);
+  //   this.app.use('/', express.static(build_path));
+  // }
 
   private initializeSwagger() {
     const options = {

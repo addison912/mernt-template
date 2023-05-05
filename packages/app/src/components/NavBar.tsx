@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react';
+import React, { FunctionComponent } from 'react';
 import { Box, Link, Flex, Image, Button, useColorModeValue, Stack } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import NavDropdown from './NavDropdown';
@@ -14,7 +14,7 @@ const signOut = () => {
   console.log('signing out');
 };
 
-let body = user ? (
+const body = user ? (
   <NavDropdown user={user} signOut={signOut} />
 ) : (
   <Stack direction="row">

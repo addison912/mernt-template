@@ -3,9 +3,6 @@
   "version": "0.0.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
     "clean": "rimraf dist *.tsbuildinfo",
     "lint": "eslint src --ext js,ts",
@@ -13,6 +10,7 @@
     "watch": "tsc -w"
   },
   "dependencies": {
+    "@types/react": "^18.2.5",
     "typescript": "^4.9.5"
   },
   "devDependencies": {

@@ -1,5 +1,6 @@
-import React, { FunctionComponent, useContext } from 'react';
-import UserContext from '@/src/context/UserContext';
+import React, { FunctionComponent } from 'react';
+// import { UserContext } from '@/src/pages/_app';
+// import { UserContext } from '@context/UserContext';
 import { Form, Formik } from 'formik';
 import { Button } from '@chakra-ui/react';
 import { Wrapper } from '@components/Wrapper';
@@ -7,19 +8,22 @@ import InputField from '@components/InputField';
 import { toErrorMap } from '@utils/toErrorMap';
 import { useRouter } from 'next/router';
 import { Layout } from '@components/Layout';
-import { ILogin } from '@/../types/dist';
-import { login } from '@utils/user';
+import { AuthContextType, ILogin } from '@/../types';
+import { useAuth } from '../../context/AuthContext';
 
-interface LoginProps {}
+// interface LoginProps {}
 
-const Register: FunctionComponent<LoginProps> = ({}) => {
-  const { user, setUser } = useContext(UserContext);
-
+const Register: FunctionComponent = () => {
+  const { login } = useAuth() as AuthContextType;
   const router = useRouter();
   const loginHandler = async (values: ILogin) => {
-    let response = await login(values);
-
-    router.push('/');
+    try {
+      const response = await login(values);
+      console.log(response);
+      await router.push('/');
+    } catch (err) {
+      console.log(err);
+    }
   };
   return (
     <Layout>
@@ -27,7 +31,7 @@ const Register: FunctionComponent<LoginProps> = ({}) => {
         <Formik
           initialValues={{ email: '', password: '' }}
           onSubmit={async (values, { setErrors }) => {
-            loginHandler(values);
+            await loginHandler(values);
           }}
         >
           {({ isSubmitting }) => (

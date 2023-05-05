@@ -1,0 +1,7 @@
+{
+  "extends": "../../.eslintrc",
+  "parserOptions": {
+    "project": "tsconfig.json"
+  },
+  "plugins": ["@emotion", "jsx-a11y", "react"]
+}

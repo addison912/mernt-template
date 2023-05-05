@@ -2,16 +2,17 @@ import { useState, useEffect } from 'react';
 
 /**
  * Hook for handling closing when clicking outside of an element
- * @param { React.node } el
+ * @param { EventTarget } el
  * @param { boolean } initialState
  */
 export const useDetectOutsideClick = (el: React.RefObject<HTMLElement>, initialState: boolean) => {
   const [isActive, setIsActive] = useState(initialState);
 
   useEffect(() => {
-    const onClick = (e: { target: any }) => {
+    const onClick = ({ target }: MouseEvent) => {
       // If the active element exists and is clicked outside of
-      if (el.current !== null && !el.current.contains(e.target)) {
+
+      if (el.current !== null && !el.current.contains(target as Node)) {
         setIsActive(!isActive);
       }
     };

@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react';
+import React, { FunctionComponent } from 'react';
 import { Layout } from '@/src/components/Layout';
 import { Image } from '@chakra-ui/react';
 

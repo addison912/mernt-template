@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import NavDropdownItem from './NavDropdownItem';
 import { useDetectOutsideClick } from './useDetectOutsideClick';
 import ExpandIcon from './icons/ExpandIcon';

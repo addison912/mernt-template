@@ -1,4 +1,4 @@
-import { FieldError } from '../../../types/dist';
+import { FieldError } from '../../../types';
 
 export const toErrorMap = (errors: FieldError[]) => {
   const errorMap: Record<string, string> = {};

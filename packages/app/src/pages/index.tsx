@@ -1,7 +1,6 @@
-// import logo from '@/public/assets/logo.png';
+import React from 'react';
 import { Layout } from '@components/Layout';
 import Image from 'next/image';
-import React from 'react';
 import logo from '@public/images/logo.svg';
 
 export default function Home() {

@@ -1,11 +1,13 @@
 {
-  "private": true,
+  "name": "@mernt-template/app",
+  "version": "0.0.1",
   "scripts": {
     "dev": "next",
     "build": "next build",
     "start": "next start",
     "clear": "rm -rf .next",
-    "sass": "sass --watch sass:src/styles"
+    "sass": "sass --watch sass:src/styles",
+    "lint": "eslint src --ext tsx,ts"
   },
   "dependencies": {
     "@babel/core": "^7.21.4",

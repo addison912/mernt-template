@@ -1,19 +1,16 @@
+import React from 'react';
 import { ChakraProvider } from '@chakra-ui/react';
-import { useState } from 'react';
 import theme from '../components/theme';
 import '@styles/globals.css';
 import { AppProps } from 'next/app';
-import UserContext from '../context/UserContext';
-import { IUser } from '@/../types/dist';
+import { AuthProvider } from '../context/AuthContext';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [user, setUser] = useState<IUser | null>(null);
-
   return (
     <ChakraProvider theme={theme}>
-      <UserContext.Provider value={{ user, setUser }}>
+      <AuthProvider>
         <Component {...pageProps} />
-      </UserContext.Provider>
+      </AuthProvider>
     </ChakraProvider>
   );
 }

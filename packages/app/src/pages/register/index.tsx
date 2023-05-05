@@ -7,13 +7,13 @@ import { useRouter } from 'next/router';
 import { Layout } from '@components/Layout';
 // import { toErrorMap } from '../utils/toErrorMap';
 
-interface RegisterProps {}
+// interface RegisterProps {}
 
-const Register: FunctionComponent<RegisterProps> = () => {
+const Register: FunctionComponent = () => {
   const router = useRouter();
-  const register = (values: any) => {
+  const register = async (values: any) => {
     console.log(values);
-    router.push('/');
+    await router.push('/');
   };
   return (
     <Layout>
@@ -21,7 +21,7 @@ const Register: FunctionComponent<RegisterProps> = () => {
         <Formik
           initialValues={{ username: '', email: '', password: '' }}
           onSubmit={async (values, { setErrors }) => {
-            register(values);
+            await register(values);
           }}
         >
           {({ isSubmitting }) => (

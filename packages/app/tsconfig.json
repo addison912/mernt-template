@@ -5,7 +5,6 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "lib": ["dom", "dom.iterable", "esnext"],
-    "isolatedModules": true,
     "module": "esnext",
     "jsx": "preserve",
     "incremental": true,
@@ -18,11 +17,14 @@
     "paths": {
       "@/*": ["*"],
       "@components/*": ["src/components/*"],
+      "@constants": ["src/constants"],
+      "@context/*": ["src/context/*"],
       "@pages/*": ["src/pages/*"],
-      "@utils/*": ["src/utils/*"],
+      "@public/*": ["public/*"],
       "@styles/*": ["src/styles/*"],
-      "@public/*": ["public/*"]
-    }
+      "@utils/*": ["src/utils/*"]
+    },
+    "isolatedModules": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
