@@ -7,11 +7,14 @@ import { DataStoredInToken, TokenData } from '@interfaces/auth.interface';
 import { User } from '@interfaces/users.interface';
 import userModel from '@/models/User';
 import { isEmpty } from '@utils/util';
+import { LoginUserDto } from '@/dtos/auth.dto';
+import { FieldErrorResponse } from '@/exceptions/FieldError';
+import { FieldError } from '@/../../types/src';
 
 class AuthService {
   public users = userModel;
 
-  public async signup(userData: CreateUserDto): Promise<User> {
+  public async register(userData: CreateUserDto): Promise<User> {
     if (isEmpty(userData)) throw new HttpException(400, 'userData is empty');
 
     const findUser: User | null = await this.users.findOne({ email: userData.email });
@@ -23,19 +26,34 @@ class AuthService {
     return createUserData;
   }
 
-  public async login(userData: CreateUserDto): Promise<{ cookie: string; findUser: User }> {
-    if (isEmpty(userData)) throw new HttpException(400, 'userData is empty');
+  public async login(userData: LoginUserDto): Promise<{ cookie?: string; findUser?: User; errors?: FieldError[] }> {
+    try {
+      let errors: FieldError[] = [];
+      if (isEmpty(userData)) {
+        errors.push({ field: 'email', message: 'Please enter an email address' });
+      }
+      const findUser: User | null = await this.users.findOne({ email: userData.email });
+      if (!findUser) {
+        errors.push({ field: 'email', message: `The email "${userData.email}" was not found` });
+      }
+      const isPasswordMatching: boolean = await compare(userData.password, findUser!.password);
+      if (!isPasswordMatching) {
+        errors.push({ field: 'password', message: 'Incorrect Password' });
+      }
 
-    const findUser: User | null = await this.users.findOne({ email: userData.email });
-    if (!findUser) throw new HttpException(409, `This email ${userData.email} was not found`);
-
-    const isPasswordMatching: boolean = await compare(userData.password, findUser.password);
-    if (!isPasswordMatching) throw new HttpException(409, 'Password is not matching');
-
-    const tokenData = this.createToken(findUser);
-    const cookie = this.createCookie(tokenData);
-
-    return { cookie, findUser };
+      console.log(errors);
+      if (errors.length > 0) {
+        return { errors };
+      } else if (findUser && isPasswordMatching) {
+        const tokenData = this.createToken(findUser);
+        const cookie = this.createCookie(tokenData);
+        return { cookie, findUser };
+      } else {
+        throw new HttpException(500, 'Uncaught exception');
+      }
+    } catch (err) {
+      throw new HttpException(500, 'Uncaught exception');
+    }
   }
 
   public async logout(userData: User): Promise<User> {

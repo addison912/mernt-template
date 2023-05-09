@@ -1,14 +1,6 @@
-import { ILogin, IUser } from './user';
+import { IUser } from './user';
+import { ILogin } from './auth';
 // import { Dispatch, SetStateAction } from 'react';
-
-/**
- * Field error
- * @public
- */
-export type FieldError = {
-  field: string;
-  message: string;
-};
 
 export type UserContextType = {
   login: () => void;

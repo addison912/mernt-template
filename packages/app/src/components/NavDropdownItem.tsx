@@ -6,9 +6,10 @@ interface IProps {
 
 const NavDropdownItem: React.FC<IProps> = ({ item }) => {
   const { name, icon, action } = { ...item };
+
   return (
     <li className="navDropdownItem">
-      <button className="dropDownMenuButton" onClick={() => action()}>
+      <button className="dropDownMenuButton" onClick={action}>
         <div className="col_2 menu-icon">{icon ? icon : null}</div>
         <span className="col_10 dropdownItemName">{name}</span>
       </button>

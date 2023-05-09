@@ -36,8 +36,8 @@ const Register: FunctionComponent = () => {
         >
           {({ isSubmitting }) => (
             <Form>
-              <InputField name="email" placeholder="email" />
-              <InputField name="password" placeholder="password" type="password" />
+              <InputField name="email" placeholder="email" type="email" required />
+              <InputField name="password" placeholder="password" type="password" required />
               <Button type="submit" mt={4} bgColor="buttonPrimary" isLoading={isSubmitting}>
                 Login
               </Button>

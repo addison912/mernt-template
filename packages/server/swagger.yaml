@@ -1,8 +1,50 @@
-tags:
-  - name: users
-    description: users API
+openapi: 3.0.3
+info:
+  title: Mernt Example API
+  description: Optional multiline or single-line description in [CommonMark](http://commonmark.org/help/) or HTML.
+  version: 0.0.1
 
 paths:
+  # [GET] ping
+  /ping:
+    get:
+      tags:
+        - ping
+      summary: Checks if the server is running [not built]
+      responses:
+        200:
+          description: Server is up and running.
+        default:
+          description: Something is wrong.
+  # [POST] login
+  /login:
+    post:
+      tags:
+        - auth
+      summary: Returns auth token [not built]
+      security: [] # No security
+      responses:
+        200:
+          description: User logged in.
+        400:
+          description: Invalid user data. User may already exist.
+        409:
+          description: User data not provided in request.
+  # [POST] register
+  /register:
+    post:
+      tags:
+        - auth
+      summary: Creates new user and returns user data
+      security: [] # No security
+      responses:
+        201:
+          description: User registration successful.
+        400:
+          description: Incorrect email or password.
+        409:
+          description: User data not provided in request.
+
   # [GET] users
   /users:
     get:
