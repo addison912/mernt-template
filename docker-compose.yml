@@ -34,16 +34,16 @@ services:
     image: amd64/mongo:6.0.3-focal
     container_name: mongo
     ports:
-      - '27017:27017'
+      - '27071:27017'
     restart: always
     env_file:
       - .env.development.local
-    networks:
-      - server
+#     networks:
+#       - server
 
-networks:
-  server:
-    driver: bridge
+# networks:
+#   server:
+#     driver: bridge
 
 volumes:
   data:

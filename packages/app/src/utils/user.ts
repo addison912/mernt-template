@@ -1,8 +1,7 @@
 import { ILogin } from '@/../types/dist';
-import { SERVER_URL } from '@constants';
 
 const login = async (values: ILogin) => {
-  const response = await fetch(`${SERVER_URL}/login`, {
+  const response = await fetch(`${process.env.SERVER_URL}/login`, {
     method: 'POST',
     mode: 'cors',
     headers: {

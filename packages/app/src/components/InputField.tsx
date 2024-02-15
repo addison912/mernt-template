@@ -5,13 +5,14 @@ import { FormControl, FormLabel, Input, FormErrorMessage } from '@chakra-ui/reac
 type InputFieldProps = InputHTMLAttributes<HTMLInputElement> & {
   label?: string;
   name: string;
+  size?: string;
   textarea?: boolean;
 };
 
 // '' => false
 // 'error message stuff' => true
 
-const InputField: React.FC<InputFieldProps> = ({ label, size: _, ...props }) => {
+const InputField: React.FC<InputFieldProps> = ({ label, ...props }) => {
   const InputOrTextarea = Input;
   const [field, { error }] = useField(props);
   return (

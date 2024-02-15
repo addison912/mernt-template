@@ -5,7 +5,7 @@ import { Form, Formik } from 'formik';
 import { Button } from '@chakra-ui/react';
 import { Wrapper } from '@components/Wrapper';
 import InputField from '@components/InputField';
-import { toErrorMap } from '@utils/toErrorMap';
+// import { toErrorMap } from '@utils/toErrorMap';
 import { useRouter } from 'next/router';
 import { Layout } from '@components/Layout';
 import { AuthContextType, ILogin } from '@/../types';
